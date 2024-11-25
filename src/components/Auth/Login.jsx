@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 
-const Login = () => {
+const Login = ({handleLogin}) => {
 
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
 
   const submitHandler = (e)=>{
     e.preventDefault();
+    handleLogin(email , password)
     
-    setEmail("");
-    setPassword("");
+    // setEmail("");
+    // setPassword("");
   }
 
   return (
@@ -37,4 +38,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default  memo(Login)
